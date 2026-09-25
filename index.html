@@ -628,7 +628,74 @@ showMessage(
 "🐾 Milo is exploring " + place + "! What an adventure! ⭐"
 );
 
-}
+}function openHome() {
+
+showMessage(`
+<div style="
+background:#eee5d3;
+border-radius:20px;
+padding:20px;
+text-align:center;
+">
+
+<h2 style="color:#52634a;">🏡 Milo's Home</h2>
+
+<p>Milo's cosy little home is ready! 🐱💚</p>
+
+<div style="
+background:#d8c5a8;
+border-radius:20px;
+padding:25px;
+margin-top:15px;
+">
+
+<div style="font-size:60px;">🪟</div>
+
+<p style="font-size:35px;">🌿 🧸 🌿</p>
+
+<div style="
+background:#9a8063;
+border-radius:50px;
+padding:15px;
+margin:15px;
+font-size:35px;
+">
+🛏️ 🐱
+</div>
+
+<p style="font-size:30px;">🍎 🥣 🎾</p>
+
+</div>
+
+<div style="
+display:grid;
+grid-template-columns:1fr 1fr;
+gap:8px;
+margin-top:15px;
+">
+
+<button class="action green" onclick="sleep()">
+🌙 Milo's Bed
+</button>
+
+<button class="action" onclick="feed()">
+🍎 Food Bowl
+</button>
+
+<button class="action" onclick="play()">
+🎾 Toys
+</button>
+
+<button class="action green" onclick="explore()">
+🌳 Go Outside
+</button>
+
+</div>
+
+</div>
+`);
+
+  }
 
 
 function showMessage(message) {
