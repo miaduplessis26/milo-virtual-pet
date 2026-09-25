@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Milo's Virtual Pet World</title>
+
+<style>
+body {
+  margin: 0;
+  font-family: Georgia, serif;
+  background: #f3eee2;
+  color: #4f4a3f;
+  text-align: center;
+}
+
+.container {
+  max-width: 600px;
+  margin: auto;
+  padding: 25px;
+}
+
+h1 {
+  color: #596b4f;
+  margin-bottom: 5px;
+}
+
+.subtitle {
+  color: #806f59;
+  margin-bottom: 25px;
+}
+
+.pet-card {
+  background: #fffaf0;
+  border-radius: 25px;
+  padding: 25px;
+  box-shadow: 0 5px 20px rgba(80,70,50,0.15);
+}
+
+.milo {
+  font-size: 120px;
+  margin: 10px;
+}
+
+h2 {
+  color: #596b4f;
+}
+
+.stats {
+  margin: 20px 0;
+}
+
+.stat {
+  margin: 12px 0;
+  text-align: left;
+}
+
+.bar {
+  height: 15px;
+  background: #ddd6c5;
+  border-radius: 20px;
+  overflow: hidden;
+}
+
+.fill {
+  height: 100%;
+  width: 70%;
+  background: #7b8d6b;
+  transition: 0.4s;
+}
+
+button {
+  border: none;
+  border-radius: 15px;
+  padding: 14px 18px;
+  margin: 6px;
+  background: #7b8d6b;
+  color: white;
+  font-size: 15px;
+  cursor: pointer;
+}
+
+button:hover {
+  background: #596b4f;
+}
+
+.message {
+  margin-top: 20px;
+  padding: 15px;
+  background: #eee6d5;
+  border-radius: 15px;
+  min-height: 20px;
+}
+
+.footer {
+  margin-top: 25px;
+  font-size: 12px;
+  color: #8b806d;
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+<h1>THE MIA METHOD</h1>
+<div class="subtitle">🌿 VIRTUAL PET WORLD 🌿</div>
+
+<div class="pet-card">
+
+<div class="milo">🐱</div>
+
+<h2>Meet Milo</h2>
+
+<p>Hi! I'm Milo, your new virtual kitten! 💚</p>
+
+<div class="stats">
+
+<div class="stat">
+❤️ Happiness
+<div class="bar">
+<div class="fill" id="happiness" style="width:80%"></div>
+</div>
+</div>
+
+<div class="stat">
+🍎 Hunger
+<div class="bar">
+<div class="fill" id="hunger" style="width:60%"></div>
+</div>
+</div>
+
+<div class="stat">
+⚡ Energy
+<div class="bar">
+<div class="fill" id="energy" style="width:90%"></div>
+</div>
+</div>
+
+</div>
+
+<h3>What would you like to do?</h3>
+
+<button onclick="feed()">🍎 Feed Milo</button>
+
+<button onclick="play()">🎾 Play</button>
+
+<button onclick="sleep()">💤 Sleep</button>
+
+<button onclick="explore()">🌳 Explore</button>
+
+<div class="message" id="message">
+Milo is waiting for you! 🐾
+</div>
+
+</div>
+
+<div class="footer">
+© 2026 THE MIA METHOD. All rights reserved.
+</div>
+
+</div>
+
+<script>
+
+let happiness = 80;
+let hunger = 60;
+let energy = 90;
+
+function updateStats() {
+  document.getElementById("happiness").style.width = happiness + "%";
+  document.getElementById("hunger").style.width = hunger + "%";
+  document.getElementById("energy").style.width = energy + "%";
+}
+
+function feed() {
+  hunger = Math.min(100, hunger + 25);
+  happiness = Math.min(100, happiness + 5);
+
+  document.getElementById("message").innerHTML =
+  "🍎 Yum
