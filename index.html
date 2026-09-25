@@ -1,166 +1,531 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Milo's Virtual Pet World</title>
+
+<title>THE MIA METHOD — Virtual Pet World</title>
 
 <style>
+
+* {
+  box-sizing: border-box;
+}
+
 body {
   margin: 0;
+  background: #eee7d8;
+  color: #514a3d;
   font-family: Georgia, serif;
-  background: #f3eee2;
-  color: #4f4a3f;
+}
+
+header {
   text-align: center;
+  padding: 25px 15px 15px;
 }
 
-.container {
-  max-width: 600px;
-  margin: auto;
-  padding: 25px;
-}
-
-h1 {
-  color: #596b4f;
-  margin-bottom: 5px;
+.logo {
+  color: #52634a;
+  font-size: 30px;
+  font-weight: bold;
+  letter-spacing: 2px;
 }
 
 .subtitle {
   color: #806f59;
-  margin-bottom: 25px;
+  letter-spacing: 3px;
+  margin-top: 8px;
 }
 
-.pet-card {
+.world {
+  max-width: 1100px;
+  margin: auto;
+  padding: 15px;
+}
+
+/* NAVIGATION */
+
+.navigation {
+  background: #5d6d52;
+  border-radius: 22px;
+  padding: 10px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 8px;
+  margin-bottom: 15px;
+}
+
+.navigation button {
+  background: #f7f0e2;
+  color: #5b564a;
+  border: none;
+  border-radius: 15px;
+  padding: 12px 16px;
+  font-family: Georgia, serif;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+.navigation button:hover {
+  background: #dfe5d5;
+}
+
+/* MAIN */
+
+.main {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 15px;
+}
+
+/* MILO */
+
+.milo-card {
   background: #fffaf0;
   border-radius: 25px;
-  padding: 25px;
-  box-shadow: 0 5px 20px rgba(80,70,50,0.15);
+  padding: 20px;
+  text-align: center;
+  box-shadow: 0 5px 18px rgba(70,60,45,0.12);
 }
 
-.milo {
-  font-size: 120px;
-  margin: 10px;
+.milo-card h1 {
+  color: #52634a;
 }
 
-h2 {
-  color: #596b4f;
+.milo-image {
+  width: 100%;
+  max-height: 430px;
+  object-fit: cover;
+  border-radius: 20px;
+  margin-bottom: 12px;
 }
 
-.stats {
-  margin: 20px 0;
+.waiting {
+  background: #eee5d3;
+  padding: 12px;
+  border-radius: 15px;
+  font-style: italic;
 }
+
+/* RIGHT SIDE */
+
+.panel {
+  background: #fffaf0;
+  border-radius: 25px;
+  padding: 20px;
+  margin-bottom: 15px;
+}
+
+.panel-title {
+  background: #65775a;
+  color: white;
+  border-radius: 15px;
+  padding: 12px;
+  font-size: 20px;
+  margin-bottom: 15px;
+}
+
+/* STATS */
 
 .stat {
-  margin: 12px 0;
+  margin: 15px 0;
   text-align: left;
 }
 
+.stat-name {
+  margin-bottom: 5px;
+}
+
 .bar {
-  height: 15px;
-  background: #ddd6c5;
+  height: 18px;
+  background: #ddd4c2;
   border-radius: 20px;
   overflow: hidden;
 }
 
 .fill {
   height: 100%;
-  width: 70%;
-  background: #7b8d6b;
+  border-radius: 20px;
   transition: 0.4s;
 }
 
-button {
-  border: none;
-  border-radius: 15px;
-  padding: 14px 18px;
-  margin: 6px;
-  background: #7b8d6b;
-  color: white;
-  font-size: 15px;
-  cursor: pointer;
+.happiness {
+  background: #7c9b6d;
 }
 
-button:hover {
-  background: #596b4f;
+.hunger {
+  background: #d6a54c;
 }
+
+.energy {
+  background: #73a9c6;
+}
+
+/* ACTION BUTTONS */
+
+.actions {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+}
+
+.action {
+  border: none;
+  border-radius: 18px;
+  padding: 18px 10px;
+  font-family: Georgia, serif;
+  font-size: 16px;
+  cursor: pointer;
+  background: #e5d3b9;
+  color: #514a3d;
+}
+
+.action:hover {
+  transform: translateY(-2px);
+}
+
+.action.green {
+  background: #718364;
+  color: white;
+}
+
+/* LOCATIONS */
+
+.locations {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+}
+
+.location {
+  background: #e9dfcb;
+  border-radius: 18px;
+  padding: 20px 8px;
+  cursor: pointer;
+  text-align: center;
+}
+
+.location:hover {
+  background: #d9dfcf;
+}
+
+.location-icon {
+  font-size: 35px;
+}
+
+/* ACHIEVEMENTS */
+
+.achievement {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #eee5d3;
+  border-radius: 15px;
+  padding: 12px;
+  margin: 8px 0;
+}
+
+/* MESSAGE */
 
 .message {
-  margin-top: 20px;
-  padding: 15px;
-  background: #eee6d5;
+  margin-top: 15px;
+  background: #eee5d3;
   border-radius: 15px;
-  min-height: 20px;
+  padding: 15px;
+  min-height: 45px;
 }
 
-.footer {
-  margin-top: 25px;
+/* FOOTER */
+
+footer {
+  text-align: center;
+  padding: 25px;
+  color: #827766;
   font-size: 12px;
-  color: #8b806d;
 }
+
+/* MOBILE */
+
+@media (max-width: 750px) {
+
+  .main {
+    grid-template-columns: 1fr;
+  }
+
+  .locations {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .logo {
+    font-size: 24px;
+  }
+
+}
+
 </style>
 </head>
 
 <body>
 
-<div class="container">
+<header>
 
-<h1>THE MIA METHOD</h1>
-<div class="subtitle">🌿 VIRTUAL PET WORLD 🌿</div>
+<div class="logo">THE MIA METHOD</div>
 
-<div class="pet-card">
-
-<div class="milo">🐱</div>
-
-<h2>Meet Milo</h2>
-
-<p>Hi! I'm Milo, your new virtual kitten! 💚</p>
-
-<div class="stats">
-
-<div class="stat">
-❤️ Happiness
-<div class="bar">
-<div class="fill" id="happiness" style="width:80%"></div>
-</div>
+<div class="subtitle">
+🌿 VIRTUAL PET WORLD 🌿
 </div>
 
-<div class="stat">
-🍎 Hunger
-<div class="bar">
-<div class="fill" id="hunger" style="width:60%"></div>
+</header>
+
+<div class="world">
+
+<!-- NAVIGATION -->
+
+<div class="navigation">
+
+<button onclick="showMessage('🏠 Welcome home! Milo is happy to see you.')">
+🏠 Home
+</button>
+
+<button onclick="showMessage('🐾 This is Milo, your virtual kitten!')">
+🐾 Milo
+</button>
+
+<button onclick="showMessage('🗺️ Choose somewhere for Milo to explore below!')">
+🗺️ Explore
+</button>
+
+<button onclick="showMessage('🎮 Games are coming soon!')">
+🎮 Games
+</button>
+
+<button onclick="showMessage('🎒 Your inventory is currently empty.')">
+🎒 Inventory
+</button>
+
+<button onclick="showMessage('🏆 Your achievements will appear here.')">
+🏆 Achievements
+</button>
+
 </div>
-</div>
 
-<div class="stat">
-⚡ Energy
-<div class="bar">
-<div class="fill" id="energy" style="width:90%"></div>
-</div>
-</div>
 
-</div>
+<div class="main">
 
-<h3>What would you like to do?</h3>
+<!-- MILO -->
 
-<button onclick="feed()">🍎 Feed Milo</button>
+<div class="milo-card">
 
-<button onclick="play()">🎾 Play</button>
+<h1>Meet Milo ♡</h1>
 
-<button onclick="sleep()">💤 Sleep</button>
+<img
+src="IMG-20260926-WA0000.jpg"
+class="milo-image"
+alt="Milo's Virtual Pet World"
+>
 
-<button onclick="explore()">🌳 Explore</button>
+<p>
+Hi! I'm Milo, your new virtual kitten! 🐱
+</p>
 
-<div class="message" id="message">
+<div class="waiting" id="message">
 Milo is waiting for you! 🐾
 </div>
 
 </div>
 
-<div class="footer">
-© 2026 THE MIA METHOD. All rights reserved.
+
+<!-- RIGHT PANEL -->
+
+<div>
+
+<div class="panel">
+
+<div class="panel-title">
+🐾 Milo's Stats
+</div>
+
+<div class="stat">
+
+<div class="stat-name">
+❤️ Happiness <span id="happinessText">80%</span>
+</div>
+
+<div class="bar">
+<div
+class="fill happiness"
+id="happiness"
+style="width:80%">
+</div>
 </div>
 
 </div>
+
+
+<div class="stat">
+
+<div class="stat-name">
+🍎 Hunger <span id="hungerText">60%</span>
+</div>
+
+<div class="bar">
+<div
+class="fill hunger"
+id="hunger"
+style="width:60%">
+</div>
+</div>
+
+</div>
+
+
+<div class="stat">
+
+<div class="stat-name">
+⚡ Energy <span id="energyText">90%</span>
+</div>
+
+<div class="bar">
+<div
+class="fill energy"
+id="energy"
+style="width:90%">
+</div>
+</div>
+
+</div>
+
+</div>
+
+
+<div class="panel">
+
+<div class="panel-title">
+🌿 What would you like to do?
+</div>
+
+<div class="actions">
+
+<button
+class="action green"
+onclick="feed()">
+🍎<br>Feed Milo
+</button>
+
+<button
+class="action"
+onclick="play()">
+🎾<br>Play
+</button>
+
+<button
+class="action"
+onclick="sleep()">
+🌙<br>Sleep
+</button>
+
+<button
+class="action green"
+onclick="explore()">
+🗺️<br>Explore
+</button>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+
+<!-- LOCATIONS -->
+
+<div class="panel">
+
+<div class="panel-title">
+🌎 Explore Milo's World
+</div>
+
+<div class="locations">
+
+<div class="location"
+onclick="visit('Milo’s Home 🏠')">
+<div class="location-icon">🏠</div>
+Milo's Home
+</div>
+
+<div class="location"
+onclick="visit('the Garden 🌷')">
+<div class="location-icon">🌷</div>
+Garden
+</div>
+
+<div class="location"
+onclick="visit('the Park 🌳')">
+<div class="location-icon">🌳</div>
+Park
+</div>
+
+<div class="location"
+onclick="visit('the Beach 🏖️')">
+<div class="location-icon">🏖️</div>
+Beach
+</div>
+
+<div class="location"
+onclick="visit('the Forest 🌲')">
+<div class="location-icon">🌲</div>
+Forest
+</div>
+
+<div class="location"
+onclick="visit('the Village 🏡')">
+<div class="location-icon">🏡</div>
+Village
+</div>
+
+</div>
+
+</div>
+
+
+<!-- ACHIEVEMENTS -->
+
+<div class="panel">
+
+<div class="panel-title">
+🏆 Achievements
+</div>
+
+<div class="achievement">
+<span>🐾 First Visit</span>
+<span>🔒</span>
+</div>
+
+<div class="achievement">
+<span>❤️ Happy Milo</span>
+<span>🔒</span>
+</div>
+
+<div class="achievement">
+<span>🌳 Explorer</span>
+<span>🔒</span>
+</div>
+
+</div>
+
+
+</div>
+
+
+<footer>
+© 2026 THE MIA METHOD. All rights reserved.
+<br>
+Small paws, big adventures. ♡
+</footer>
+
 
 <script>
 
@@ -168,15 +533,112 @@ let happiness = 80;
 let hunger = 60;
 let energy = 90;
 
+
 function updateStats() {
-  document.getElementById("happiness").style.width = happiness + "%";
-  document.getElementById("hunger").style.width = hunger + "%";
-  document.getElementById("energy").style.width = energy + "%";
+
+document.getElementById("happiness").style.width =
+happiness + "%";
+
+document.getElementById("hunger").style.width =
+hunger + "%";
+
+document.getElementById("energy").style.width =
+energy + "%";
+
+
+document.getElementById("happinessText").innerText =
+happiness + "%";
+
+document.getElementById("hungerText").innerText =
+hunger + "%";
+
+document.getElementById("energyText").innerText =
+energy + "%";
+
 }
 
-function feed() {
-  hunger = Math.min(100, hunger + 25);
-  happiness = Math.min(100, happiness + 5);
 
-  document.getElementById("message").innerHTML =
-  "🍎 Yum
+function feed() {
+
+hunger = Math.min(100, hunger + 25);
+
+happiness = Math.min(100, happiness + 5);
+
+showMessage(
+"🍎 Yum! Milo enjoyed his meal! He is feeling happy. 💚"
+);
+
+updateStats();
+
+}
+
+
+function play() {
+
+happiness = Math.min(100, happiness + 20);
+
+energy = Math.max(0, energy - 15);
+
+hunger = Math.max(0, hunger - 5);
+
+showMessage(
+"🎾 Milo had so much fun playing with you! 🐾"
+);
+
+updateStats();
+
+}
+
+
+function sleep() {
+
+energy = Math.min(100, energy + 30);
+
+hunger = Math.max(0, hunger - 5);
+
+showMessage(
+"🌙 Milo is having a lovely little nap. Sweet dreams!"
+);
+
+updateStats();
+
+}
+
+
+function explore() {
+
+happiness = Math.min(100, happiness + 10);
+
+energy = Math.max(0, energy - 20);
+
+hunger = Math.max(0, hunger - 10);
+
+showMessage(
+"🗺️ Milo discovered a beautiful new place! Adventure unlocked! ⭐"
+);
+
+updateStats();
+
+}
+
+
+function visit(place) {
+
+showMessage(
+"🐾 Milo is exploring " + place + "! What an adventure! ⭐"
+);
+
+}
+
+
+function showMessage(message) {
+
+document.getElementById("message").innerHTML =
+message;
+
+}
+
+</script>
+
+</body>
+</html>
